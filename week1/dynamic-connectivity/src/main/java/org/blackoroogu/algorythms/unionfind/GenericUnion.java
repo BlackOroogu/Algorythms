@@ -39,6 +39,22 @@ abstract class GenericUnion implements IUnion {
         return count;
     }
 
+    public int[] depths(){
+        int[] depths  = new int[items.length];
+        for (int i = 0; i < depths.length; i++)
+            depths[i] = getdepth(i);
+        return depths;
+    }
+
+    private int getdepth(int index){
+        int count=1;
+        while(items[index] != index){
+            count++;
+            index = items[index];
+        }
+        return count;
+    }
+
     public int length(){
         return items.length;
     }

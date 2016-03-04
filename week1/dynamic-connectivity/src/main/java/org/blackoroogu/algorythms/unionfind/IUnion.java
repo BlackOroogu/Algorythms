@@ -13,4 +13,5 @@ public interface IUnion {
 
     int count();
     int length();
+    int[] depths();
 }

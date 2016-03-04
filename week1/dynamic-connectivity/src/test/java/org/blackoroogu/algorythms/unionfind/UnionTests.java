@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 /**
  * Created by kguryanov on 3/4/2016.
@@ -23,10 +24,10 @@ public class UnionTests {
 
     @Test
     public void QuickUnionTest2() {
-        QuickUnion theUnion2 = new QuickUnion(10);
-        Reporter.log(theUnion2.toString(), true);
+        QuickUnion theUnion = new QuickUnion(10);
+        Reporter.log(theUnion.toString(), true);
 
-        doTests2(theUnion2);
+        doTests2(theUnion);
     }
 
     @Test
@@ -77,12 +78,14 @@ public class UnionTests {
         doTest(theUnion, 6, 1);
         doTest(theUnion, 7, 3);
 
+        Reporter.log(Arrays.toString(theUnion.depths()),true);
     }
 
     private void doTests2(IUnion theUnion) {
         for (int i = 0; i < theUnion.length() - 1; i++)
             doTest(theUnion, i, i + 1);
 
+        Reporter.log(Arrays.toString(theUnion.depths()),true);
     }
 
     private void doTest(IUnion theUnion, int first, int second) {
