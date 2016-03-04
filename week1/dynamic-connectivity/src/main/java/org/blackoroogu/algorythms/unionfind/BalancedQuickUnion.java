@@ -32,8 +32,10 @@ public class BalancedQuickUnion extends GenericUnion {
     }
 
     public int root(int index) {
-        while (items[index] != index)
+        while (items[index] != index) {
+            items[index] = items[items[index]];
             index = items[index];
+        }
 
         return index;
     }
