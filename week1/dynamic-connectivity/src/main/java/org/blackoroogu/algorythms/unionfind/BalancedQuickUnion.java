@@ -22,7 +22,7 @@ public class BalancedQuickUnion extends GenericUnion {
         if (firstID == secondID)
             return;
 
-        if (sizes[firstID] < sizes[secondID]) {
+        if (sizes[firstID] > sizes[secondID]) {
             items[firstID] = secondID;
             sizes[secondID] += sizes[firstID];
         } else {
