@@ -12,20 +12,17 @@ public class QuickUnion extends GenericUnion {
     }
 
     public void union(int first, int second) {
-        int firstID = find(first);
-        int secondID = find(second);
-        if (firstID != secondID)
-            items[firstID] = secondID;
+        int firstID = root(first);
+        int secondID = root(second);
+        items[firstID] = secondID;
     }
 
-    public int find(int index) {
+    public int root(int index) {
         if (items[index] == index)
             return index;
 
-        return (find(items[index]));
+        return (root(items[index]));
     }
-
-
 
 
 }

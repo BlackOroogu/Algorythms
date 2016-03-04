@@ -11,18 +11,15 @@ public class QuickFind extends GenericUnion {
     }
 
     public void union(int first, int second) {
-        int firstID = find(first);
-        int secondID = find(second);
+        int firstID = root(first);
+        int secondID = root(second);
         for (int i = 0; i < items.length; i++)
             if (items[i] == firstID)
                 items[i] = secondID;
     }
 
-    public int find(int index) {
+    public int root(int index){
         return items[index];
     }
 
-    public int count() {
-        return 0;
-    }
 }

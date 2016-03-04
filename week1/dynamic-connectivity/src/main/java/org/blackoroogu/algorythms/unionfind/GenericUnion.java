@@ -11,26 +11,28 @@ abstract class GenericUnion implements IUnion {
 
     protected GenericUnion(int size) {
         items = new int[size];
+        for (int i = 0; i < size; i++)
+            items[i] = i;
     }
 
 
     public boolean isConnected(int first, int second) {
-        return find(first) == find(second);
+        return root(first) == root(second);
     }
 
     @Override
     public String toString() {
-        return "Union{" +
-                "items=" + Arrays.toString(items) +
+        return this.getClass().getName() + "[" + count() + "]" +
+                "{items=" + Arrays.toString(items) +
                 '}';
     }
 
     public int count() {
         int count = 0;
         int[] cache = new int[items.length];
-        for (int i =0; i< cache.length; i++)
-            if (cache[i] == 0) {
-                cache[find(i)]++;
+        for (int i = 0; i < cache.length; i++)
+            if (cache[root(i)] == 0) {
+                cache[root(i)]++;
                 count++;
             }
         return count;
