@@ -22,7 +22,7 @@ abstract class GenericUnion implements IUnion {
 
     @Override
     public String toString() {
-        return this.getClass().getName() + "[" + count() + "]" +
+        return this.getClass().getSimpleName() + "[" + count() + "]" +
                 "{items=" + Arrays.toString(items) +
                 '}';
     }

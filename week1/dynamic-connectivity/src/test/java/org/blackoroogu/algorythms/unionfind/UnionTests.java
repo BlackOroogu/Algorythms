@@ -15,17 +15,7 @@ public class UnionTests {
         QuickUnion theUnion = new QuickUnion(10);
         Reporter.log(theUnion.toString(), true);
 
-        theUnion.union(0, 9);
-        Assert.assertTrue(theUnion.isConnected(0, 9));
-        Reporter.log(theUnion.toString(), true);
-
-        theUnion.union(3, 4);
-        Assert.assertTrue(theUnion.isConnected(3, 4));
-        Reporter.log(theUnion.toString(), true);
-
-        theUnion.union(0, 3);
-        Assert.assertTrue(theUnion.isConnected(0, 4));
-        Reporter.log(theUnion.toString(), true);
+        doTests(theUnion);
     }
 
     @Test
@@ -33,16 +23,27 @@ public class UnionTests {
         QuickFind theUnion = new QuickFind(10);
         Reporter.log(theUnion.toString(), true);
 
-        theUnion.union(0, 9);
-        Assert.assertTrue(theUnion.isConnected(0, 9));
-        Reporter.log(theUnion.toString(), true);
+        doTests(theUnion);
+    }
 
-        theUnion.union(3, 4);
-        Assert.assertTrue(theUnion.isConnected(3, 4));
-        Reporter.log(theUnion.toString(), true);
+    private void doTests(IUnion theUnion) {
+        doTest(theUnion, 4, 3);
+        doTest(theUnion, 3, 8);
+        doTest(theUnion, 6, 5);
+        doTest(theUnion, 9, 4);
+        doTest(theUnion, 2, 1);
+        doTest(theUnion, 8, 9);
+//        doTest(theUnion, 5, 4);
+        doTest(theUnion, 5, 0);
+        doTest(theUnion, 7, 2);
+        doTest(theUnion, 6, 1);
+        doTest(theUnion, 7, 3);
 
-        theUnion.union(0, 3);
-        Assert.assertTrue(theUnion.isConnected(0, 4));
+    }
+
+    private void doTest(IUnion theUnion, int first, int second) {
+        theUnion.union(first, second);
+        Assert.assertTrue(theUnion.isConnected(first, second));
         Reporter.log(theUnion.toString(), true);
     }
 }
