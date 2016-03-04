@@ -22,7 +22,8 @@ abstract class GenericUnion implements IUnion {
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + "[" + count() + "]" +
+        String formatFormula = String.format("%%0%dd",(int)(Math.log10(items.length))+1);
+        return this.getClass().getSimpleName() + "[" + String.format(formatFormula, count()) + "]" +
                 "{items=" + Arrays.toString(items) +
                 '}';
     }
@@ -36,5 +37,9 @@ abstract class GenericUnion implements IUnion {
                 count++;
             }
         return count;
+    }
+
+    public int length(){
+        return items.length;
     }
 }

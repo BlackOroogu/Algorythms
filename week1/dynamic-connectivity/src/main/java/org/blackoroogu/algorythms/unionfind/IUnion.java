@@ -12,4 +12,5 @@ public interface IUnion {
     int root(int index) throws IllegalArgumentException;
 
     int count();
+    int length();
 }

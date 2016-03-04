@@ -2,7 +2,10 @@ package org.blackoroogu.algorythms.unionfind;
 
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.lang.reflect.Method;
 
 /**
  * Created by kguryanov on 3/4/2016.
@@ -19,11 +22,28 @@ public class UnionTests {
     }
 
     @Test
+    public void QuickUnionTest2() {
+        QuickUnion theUnion2 = new QuickUnion(10);
+        Reporter.log(theUnion2.toString(), true);
+
+        doTests2(theUnion2);
+    }
+
+    @Test
     public void QuickFindTest() {
         QuickFind theUnion = new QuickFind(10);
         Reporter.log(theUnion.toString(), true);
 
         doTests(theUnion);
+
+    }
+
+
+    @BeforeMethod
+    protected void startSession(Method method) throws Exception {
+
+        Reporter.log(String.format("\n" +
+                "[=========== %s ===========]", method.getName()), true);
     }
 
     private void doTests(IUnion theUnion) {
@@ -38,6 +58,12 @@ public class UnionTests {
         doTest(theUnion, 7, 2);
         doTest(theUnion, 6, 1);
         doTest(theUnion, 7, 3);
+
+    }
+
+    private void doTests2(IUnion theUnion) {
+        for (int i = 0; i < theUnion.length() - 1; i++)
+            doTest(theUnion, i, i+1);
 
     }
 
