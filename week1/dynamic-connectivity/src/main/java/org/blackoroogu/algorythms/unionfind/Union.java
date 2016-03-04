@@ -5,26 +5,27 @@ package org.blackoroogu.algorythms.unionfind;
  * Actual Union class
  */
 
-public class Union implements IUnion {
-    private final int[] items;
+public class Union extends GenericUnion {
 
-    public Union(int size){
-        items = new int[size];
+    protected Union(int size) {
+        super(size);
     }
 
     public void union(int first, int second) {
-
+        int firstID = find(first);
+        int secondID = find(second);
+        if (firstID != secondID)
+            items[firstID] = secondID;
     }
 
-    public boolean isConnected(int first, int second) {
-        return false;
+    public int find(int index) {
+        if (items[index] == index)
+            return index;
+
+        return (find(items[index]));
     }
 
-    public int find(int item) {
-        return 0;
-    }
 
-    public int count() {
-        return 0;
-    }
+
+
 }
