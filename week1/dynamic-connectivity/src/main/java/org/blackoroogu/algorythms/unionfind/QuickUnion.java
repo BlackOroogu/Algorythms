@@ -2,12 +2,12 @@ package org.blackoroogu.algorythms.unionfind;
 
 /**
  * Created by kguryanov on 3/4/2016.
- * Actual Union class
+ * Actual QuickUnion class
  */
 
-public class Union extends GenericUnion {
+public class QuickUnion extends GenericUnion {
 
-    protected Union(int size) {
+    protected QuickUnion(int size) {
         super(size);
     }
 

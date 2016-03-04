@@ -2,7 +2,7 @@ package org.blackoroogu.algorythms.unionfind;
 
 /**
  * Created by kguryanov on 3/4/2016.
- * Interface for Union class
+ * Interface for Union example
  */
 public interface IUnion {
     void union(int first, int second);
