@@ -38,6 +38,24 @@ public class UnionTests {
 
     }
 
+    @Test
+    public void BalancedQuickUnionTest() {
+        BalancedQuickUnion theUnion = new BalancedQuickUnion(10);
+        Reporter.log(theUnion.toString(), true);
+
+        doTests(theUnion);
+
+    }
+
+    @Test
+    public void BalancedQuickUnionTest2() {
+        BalancedQuickUnion theUnion = new BalancedQuickUnion(10);
+        Reporter.log(theUnion.toString(), true);
+
+        doTests2(theUnion);
+
+    }
+
 
     @BeforeMethod
     protected void startSession(Method method) throws Exception {
@@ -63,7 +81,7 @@ public class UnionTests {
 
     private void doTests2(IUnion theUnion) {
         for (int i = 0; i < theUnion.length() - 1; i++)
-            doTest(theUnion, i, i+1);
+            doTest(theUnion, i, i + 1);
 
     }
 
